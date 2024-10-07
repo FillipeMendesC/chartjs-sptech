@@ -1,4 +1,4 @@
-#chartjs-atividade
+# chartjs-atividade
 
 Atividade de pi para treinar a utilização da biblioteca [chartjs](https://www.chartjs.org/);
 
