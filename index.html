@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="display: flex; max-width: 100vh;">
+        <canvas id="chart_linha"></canvas>
+        <canvas id="chart_bar"></canvas>
+    </div>
+</body>
+<script>
+    const ctx = document.getElementById('chart_linha');
+    const cty = document.getElementById('chart_bar');
+
+    const horario     = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+    const temperatura = [30,29,28,25,22,23]
+    const umidade     = [80,82,80,85,80,83]
+
+    // line dashboard
+    new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: horario,
+        datasets: [{
+        label: 'Temperatura',
+        data: temperatura,
+        borderWidth: 5,
+        borderColor: "#dc143c",
+        backgroundColor: "#dc143c"
+        },{
+        label: 'Umidade',
+        data: umidade,
+        borderWidth: 5,
+        borderColor: "#5f9ea0",
+        backgroundColor: "#5f9ea0"
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+    });
+
+    const mes = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho"]
+    const tempMedia = [22,24,27,23,20,18]
+    const umiMedia = [90,89,93,87,88,82]
+
+
+    new Chart(cty, {
+    type: 'bar',
+    data: {
+        labels: mes,
+        datasets: [{
+        label: 'Temperatura Média',
+        data: tempMedia,
+        borderWidth: 5,
+        backgroundColor: "#dc143c"
+        },{
+        label: 'Umidade Média',
+        data: umiMedia,
+        borderWidth: 5,
+        backgroundColor: "#5f9ea0"
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+    });
+</script>
+</html>
